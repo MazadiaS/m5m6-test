@@ -521,6 +521,201 @@
       "answer": 3,
       "topic": "M6-Train",
       "explain": "ReLU = max(0, x): negatives become 0, positives stay."
+    },
+    {
+      "id": 41,
+      "q": "Which activation goes in the HIDDEN (middle) layers?",
+      "options": [
+        "ReLU (or Leaky ReLU), fast for learning patterns",
+        "Sigmoid, to give one clean yes/no final answer",
+        "None at all; the middle layers need no gate",
+        "Softmax, to share out a percentage to each class"
+      ],
+      "answer": 0,
+      "topic": "M6-Gates",
+      "explain": "Hidden/middle layers use ReLU (Leaky if neurons die) — fast, no vanishing."
+    },
+    {
+      "id": 42,
+      "q": "At the END, for a YES/NO answer, you use:",
+      "options": [
+        "Leaky ReLU, a middle gate that never quite dies",
+        "ReLU, which outputs zero up to infinity instead",
+        "Sigmoid, which gives one number from 0 to 1",
+        "Softmax, which forces the parts to add to 100"
+      ],
+      "answer": 2,
+      "topic": "M6-Gates",
+      "explain": "Sigmoid at the end gives a single 0–1 'yes meter'."
+    },
+    {
+      "id": 43,
+      "q": "At the END, to pick ONE of many classes, you use:",
+      "options": [
+        "ReLU, which keeps only the positive numbers",
+        "Sigmoid, giving each class its own yes/no score",
+        "Softmax, sharing 100% across all of the classes",
+        "Tanh, which centers the output around the zero"
+      ],
+      "answer": 2,
+      "topic": "M6-Gates",
+      "explain": "Softmax shares 100% across classes; the biggest wins."
+    },
+    {
+      "id": 44,
+      "q": "Is Leaky ReLU an output (end) gate?",
+      "options": [
+        "No, because it is only used in unsupervised models",
+        "No, it is a middle gate; it can't shape an answer",
+        "Yes, it is the standard gate for yes/no answers",
+        "Yes, it is what you use to pick one of many"
+      ],
+      "answer": 1,
+      "topic": "M6-Gates",
+      "explain": "Leaky ReLU is a MIDDLE gate (0→∞), so it can't give a clean answer."
+    },
+    {
+      "id": 45,
+      "q": "Why use ReLU in the middle instead of sigmoid?",
+      "options": [
+        "Sigmoid makes the signal vanish in deep layers",
+        "ReLU needs labels but sigmoid does not need them",
+        "ReLU can only ever be used at the very last layer",
+        "Sigmoid is simply far too fast for middle layers"
+      ],
+      "answer": 0,
+      "topic": "M6-Gates",
+      "explain": "Sigmoid in deep middle layers causes vanishing gradients; ReLU avoids it."
+    },
+    {
+      "id": 46,
+      "q": "The outputs of softmax are:",
+      "options": [
+        "Any numbers from zero all the way up to infinity",
+        "Percentages that add up to 100; the biggest wins",
+        "Negative one up to one, centered around the zero",
+        "Always just a single zero-or-one yes/no value"
+      ],
+      "answer": 1,
+      "topic": "M6-Gates",
+      "explain": "Softmax outputs probabilities summing to 100%; pick the biggest."
+    },
+    {
+      "id": 47,
+      "q": "A photo can be beach AND sunny AND people at once. Use:",
+      "options": [
+        "No activation at all, since many tags are true",
+        "A separate sigmoid for each possible tag",
+        "ReLU on the final layer for each of the tags",
+        "One softmax that picks just a single tag"
+      ],
+      "answer": 1,
+      "topic": "M6-Gates",
+      "explain": "Multi-label (beach AND sunny AND people) = one sigmoid per tag."
+    },
+    {
+      "id": 48,
+      "q": "Quick test for sigmoid vs softmax — you ask:",
+      "options": [
+        "Is the dataset larger than ten thousand rows?",
+        "Are there any missing values inside the data?",
+        "Can MORE THAN ONE answer be true at once?",
+        "Is the model supervised or unsupervised here?"
+      ],
+      "answer": 2,
+      "topic": "M6-Gates",
+      "explain": "More than one true → sigmoid (each yes/no). Only one wins → softmax."
+    },
+    {
+      "id": 49,
+      "q": "Do activation gates depend on supervised vs unsupervised?",
+      "options": [
+        "Yes, unsupervised models never use any gate at all",
+        "No, the gate depends on the LAYER, not the data",
+        "Yes, supervised models always use only softmax",
+        "Only when the data happens to be made of images"
+      ],
+      "answer": 1,
+      "topic": "M6-Gates",
+      "explain": "Gates depend on the layer (middle vs end), not on supervised/unsupervised."
+    },
+    {
+      "id": 50,
+      "q": "'Which digit is this, 0–9?' — the final layer uses:",
+      "options": [
+        "ReLU, to keep only the positive scores here",
+        "Sigmoid, one yes/no for the whole question",
+        "Tanh, to center all the digit scores at zero",
+        "Softmax, which picks one digit out of the ten"
+      ],
+      "answer": 3,
+      "topic": "M6-Gates",
+      "explain": "'Which digit 0–9' = pick one of many → softmax."
+    },
+    {
+      "id": 51,
+      "q": "The bias in a neuron is:",
+      "options": [
+        "An extra number added to the sum (a head start)",
+        "The total number of layers inside the network",
+        "The most important one of all the input weights",
+        "The label that the network is trying to predict"
+      ],
+      "answer": 0,
+      "topic": "M6-Train",
+      "explain": "Bias is an extra number added to z — a head start before activation."
+    },
+    {
+      "id": 52,
+      "q": "The 'blame' (gradient) for a weight is:",
+      "options": [
+        "The number of times the word appears in the data",
+        "The error multiplied by that input's value",
+        "The accuracy of the model on the held-out test",
+        "The weight multiplied by the learning rate value"
+      ],
+      "answer": 1,
+      "topic": "M6-Train",
+      "explain": "blame = error × input, so words not in the sentence (input 0) get 0 blame."
+    },
+    {
+      "id": 53,
+      "q": "Why do we SQUARE the error in the loss?",
+      "options": [
+        "To reduce the number of weights you must update",
+        "To turn the error into a clean probability value",
+        "To make the whole training run a lot faster",
+        "To make it positive and punish big mistakes more"
+      ],
+      "answer": 3,
+      "topic": "M6-Train",
+      "explain": "Squaring removes the sign and makes big errors hurt much more."
+    },
+    {
+      "id": 54,
+      "q": "64 sentences with a batch of 16 — how many iterations per epoch?",
+      "options": [
+        "64, one for every single sentence in the data",
+        "16, which is one for each sentence in a batch",
+        "4",
+        "1, because an epoch is just a single update"
+      ],
+      "answer": 2,
+      "topic": "M6-Train",
+      "explain": "64 ÷ 16 = 4 batches = 4 iterations per epoch."
+    },
+    {
+      "id": 55,
+      "q": "A jagged loss curve that keeps jumping UP usually means:",
+      "options": [
+        "The model has no weights left to update now",
+        "The learning rate is too high (it overshoots)",
+        "Training has already finished perfectly well",
+        "The learning rate is far too low and very slow"
+      ],
+      "answer": 1,
+      "topic": "M6-Train",
+      "explain": "A jagged, rising loss = learning rate too high → make it smaller."
     }
   ]
 }
