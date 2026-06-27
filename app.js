@@ -196,8 +196,7 @@ async function sendToSheet(r) {
     name: state.name, group: state.group,
     score: r.score, correct: r.correct, total: QUESTIONS.length,
     percent: Math.round((r.correct / QUESTIONS.length) * 100),
-    m4: (r.perTopic.M4 ? r.perTopic.M4.correct : 0),
-    m5: (r.perTopic.M5 ? r.perTopic.M5.correct : 0),
+    topics: Object.keys(r.perTopic).sort().map((t) => t + " " + r.perTopic[t].correct + "/" + r.perTopic[t].total).join(" | "),
     answers: answersStr,
     timestamp: new Date().toISOString(),
   };

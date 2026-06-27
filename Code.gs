@@ -16,7 +16,7 @@ function doPost(e) {
     // Add a header row once.
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(["Timestamp", "Name", "Group", "Score", "Correct",
-                       "Total", "Percent", "M4 correct", "M5 correct", "Answers"]);
+                       "Total", "Percent", "Per-topic", "Answers"]);
     }
 
     sheet.appendRow([
@@ -27,8 +27,7 @@ function doPost(e) {
       data.correct || 0,
       data.total || 0,
       data.percent || 0,
-      data.m4 || 0,
-      data.m5 || 0,
+      data.topics || "",
       data.answers || ""
     ]);
 
@@ -42,5 +41,5 @@ function doPost(e) {
 
 // Lets you open the Web App URL in a browser to confirm it is live.
 function doGet(e) {
-  return ContentService.createTextOutput("M4/M5 test endpoint is live.");
+  return ContentService.createTextOutput("M5/M6 test endpoint is live.");
 }
