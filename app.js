@@ -3,7 +3,7 @@
    Answers are saved to a Google Sheet via an Apps Script Web App.
    >>> AFTER you deploy the Apps Script (see SETUP.md), paste its URL here: <<<
    ============================================================ */
-const WEBHOOK_URL = "PASTE_YOUR_NEW_WEBHOOK_URL_HERE";
+const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzHGZCY1L-inIvIwn41Z_cm68ea0RWS75cmOd0B6XYvHWjhOE_iwbXZyLtlwwXUc6Np/exec";
 
 const STORAGE_KEY = "m5m6_test_state_v1";
 const POINTS_PER_Q = 2.5;
