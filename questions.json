@@ -1,0 +1,526 @@
+{
+  "title": "AI/ML Test — Module 5 (Classes 3–5) & Module 6 (Classes 1–2)",
+  "passing": 60,
+  "questions": [
+    {
+      "id": 1,
+      "q": "What does PCA do?",
+      "options": [
+        "Makes the model supervised",
+        "Deletes random rows",
+        "Squeezes many columns into a few while keeping most of the information",
+        "Labels the data"
+      ],
+      "answer": 2,
+      "topic": "M5-PCA",
+      "explain": "PCA reduces dimensions: many columns → a few, keeping most variance (information)."
+    },
+    {
+      "id": 2,
+      "q": "PC1 (the first principal component) is:",
+      "options": [
+        "The direction of MAXIMUM variance (most spread)",
+        "The average of all columns",
+        "The target value",
+        "The first original column"
+      ],
+      "answer": 0,
+      "topic": "M5-PCA",
+      "explain": "PC1 points where the data spreads out the most — it holds the most information."
+    },
+    {
+      "id": 3,
+      "q": "Are PCA's new components your original columns?",
+      "options": [
+        "No — they are NEW columns made by mixing the originals",
+        "Yes, it keeps some columns and drops others",
+        "They are the labels",
+        "Yes, renamed"
+      ],
+      "answer": 0,
+      "topic": "M5-PCA",
+      "explain": "PCA is feature EXTRACTION: it builds new blended components, not a subset of original columns."
+    },
+    {
+      "id": 4,
+      "q": "Why must you SCALE before PCA?",
+      "options": [
+        "To remove outliers",
+        "It's required by Python",
+        "For speed",
+        "PCA chases variance, so big-range columns would dominate"
+      ],
+      "answer": 3,
+      "topic": "M5-PCA",
+      "explain": "Unscaled large-range features look like they have all the variance, so PCA follows only them."
+    },
+    {
+      "id": 5,
+      "q": "`PCA(n_components=0.95)` means:",
+      "options": [
+        "Drop 95% of features",
+        "Keep 95 components",
+        "Keep enough components to retain 95% of the variance",
+        "95% confidence level"
+      ],
+      "answer": 2,
+      "topic": "M5-PCA",
+      "explain": "A value between 0 and 1 = the fraction of information to keep; PCA picks how many components that needs."
+    },
+    {
+      "id": 6,
+      "q": "In PCA, 'variance' roughly means:",
+      "options": [
+        "The model's accuracy",
+        "The learning rate",
+        "How spread out / different the data points are",
+        "The number of rows"
+      ],
+      "answer": 2,
+      "topic": "M5-PCA",
+      "explain": "High variance = the points differ a lot in that direction = useful information."
+    },
+    {
+      "id": 7,
+      "q": "Does PCA use the label (y)?",
+      "options": [
+        "No — it only looks at the features (X)",
+        "Only in supervised mode",
+        "Only for images",
+        "Yes, it needs labels"
+      ],
+      "answer": 0,
+      "topic": "M5-PCA",
+      "explain": "PCA is unsupervised: it works on the features only and ignores the label."
+    },
+    {
+      "id": 8,
+      "q": "A main reason to use PCA is:",
+      "options": [
+        "To split train/test",
+        "To label data",
+        "To increase the number of columns",
+        "To see high-dimensional data in 2D and/or speed up models"
+      ],
+      "answer": 3,
+      "topic": "M5-PCA",
+      "explain": "Fewer, cleaner columns → you can plot the data and models run faster with less noise."
+    },
+    {
+      "id": 9,
+      "q": "t-SNE and UMAP are mainly used for:",
+      "options": [
+        "VISUALIZING high-dimensional data in 2D",
+        "Cleaning data",
+        "Training a classifier",
+        "Splitting data"
+      ],
+      "answer": 0,
+      "topic": "M5-tSNE",
+      "explain": "They squeeze many columns into 2 so you can SEE if clusters exist."
+    },
+    {
+      "id": 10,
+      "q": "Should you feed t-SNE output into a model?",
+      "options": [
+        "No — it's for looking only; its distances are distorted",
+        "Only for regression",
+        "Yes, it improves accuracy",
+        "Yes, always"
+      ],
+      "answer": 0,
+      "topic": "M5-tSNE",
+      "explain": "t-SNE distorts distances (like flattening a crumpled map) — use it for the picture, not for modelling."
+    },
+    {
+      "id": 11,
+      "q": "t-SNE mainly preserves:",
+      "options": [
+        "The file size",
+        "Global structure only",
+        "Local structure — nearby points stay nearby",
+        "The labels"
+      ],
+      "answer": 2,
+      "topic": "M5-tSNE",
+      "explain": "t-SNE keeps local neighbourhoods: points close in high-D stay close in 2D."
+    },
+    {
+      "id": 12,
+      "q": "If your data has only 2 columns, do you need t-SNE?",
+      "options": [
+        "Always",
+        "No — just plot the 2 columns directly",
+        "Only with a GPU",
+        "Yes"
+      ],
+      "answer": 1,
+      "topic": "M5-tSNE",
+      "explain": "t-SNE is for MANY columns. With 2, plot them straight with matplotlib."
+    },
+    {
+      "id": 13,
+      "q": "UMAP compared to t-SNE is usually:",
+      "options": [
+        "The same code as PCA",
+        "Less accurate always",
+        "Slower",
+        "Faster (and often keeps the big-picture layout better)"
+      ],
+      "answer": 3,
+      "topic": "M5-tSNE",
+      "explain": "UMAP is generally faster than t-SNE and often preserves global structure better."
+    },
+    {
+      "id": 14,
+      "q": "How do t-SNE and matplotlib relate?",
+      "options": [
+        "t-SNE shrinks many columns to 2, THEN matplotlib draws them",
+        "They are the same tool",
+        "They compete",
+        "matplotlib replaces t-SNE"
+      ],
+      "answer": 0,
+      "topic": "M5-tSNE",
+      "explain": "t-SNE makes many-column data drawable; matplotlib draws the result. They work together."
+    },
+    {
+      "id": 15,
+      "q": "You have 50 columns and want to SEE the data. Best move?",
+      "options": [
+        "Use t-SNE/UMAP to get 2 columns, then plot",
+        "Use a bigger model",
+        "Delete 48 columns randomly",
+        "Plot column 1 vs column 2 only"
+      ],
+      "answer": 0,
+      "topic": "M5-tSNE",
+      "explain": "Plotting 2 raw columns hides the rest; t-SNE/UMAP uses all 50 to arrange points, then you plot."
+    },
+    {
+      "id": 16,
+      "q": "The distances between clusters in a t-SNE plot are:",
+      "options": [
+        "Exact and meaningful",
+        "NOT reliable — don't measure them",
+        "Always zero",
+        "The same as accuracy"
+      ],
+      "answer": 1,
+      "topic": "M5-tSNE",
+      "explain": "The squeezing distorts distances, so gaps between clusters are not trustworthy."
+    },
+    {
+      "id": 17,
+      "q": "An anomaly is:",
+      "options": [
+        "A very common point",
+        "A label",
+        "A rare point that is different from 'normal'",
+        "The average point"
+      ],
+      "answer": 2,
+      "topic": "M5-Anomaly",
+      "explain": "Anomaly = the odd one out: rare and unlike the normal data (fraud, failures, attacks)."
+    },
+    {
+      "id": 18,
+      "q": "Why does a normal classifier struggle with fraud?",
+      "options": [
+        "Fraud is never rare",
+        "It's too easy",
+        "Extreme imbalance, very few labels, and brand-new patterns",
+        "It needs a GPU"
+      ],
+      "answer": 2,
+      "topic": "M5-Anomaly",
+      "explain": "Fraud is <1%, has few labels, and new tricks have no past examples — so supervised struggles."
+    },
+    {
+      "id": 19,
+      "q": "The main idea of unsupervised anomaly detection is:",
+      "options": [
+        "Always predict 'fraud'",
+        "Learn what FRAUD looks like",
+        "Delete rare rows",
+        "Learn what NORMAL looks like, then flag what doesn't fit"
+      ],
+      "answer": 3,
+      "topic": "M5-Anomaly",
+      "explain": "We have lots of normal data → learn normal, flag anything different."
+    },
+    {
+      "id": 20,
+      "q": "Isolation Forest flags anomalies by:",
+      "options": [
+        "Accuracy",
+        "How FEW random cuts are needed to isolate a point",
+        "Feature importance",
+        "Distance to a centroid"
+      ],
+      "answer": 1,
+      "topic": "M5-Anomaly",
+      "explain": "Odd points are far from the crowd, so very few random cuts isolate them. Few cuts = anomaly."
+    },
+    {
+      "id": 21,
+      "q": "In Isolation Forest, a label of -1 means:",
+      "options": [
+        "Normal",
+        "Missing value",
+        "Anomaly (outlier)",
+        "The best point"
+      ],
+      "answer": 2,
+      "topic": "M5-Anomaly",
+      "explain": "-1 = anomaly/outlier, 1 = normal (inlier)."
+    },
+    {
+      "id": 22,
+      "q": "`contamination=0.01` means:",
+      "options": [
+        "You expect about 1% of points to be anomalies",
+        "1 anomaly total",
+        "1% accuracy",
+        "Keep 1% of columns"
+      ],
+      "answer": 0,
+      "topic": "M5-Anomaly",
+      "explain": "contamination sets where the cut line goes — here it flags the weirdest ~1%."
+    },
+    {
+      "id": 23,
+      "q": "A model that always predicts 'normal' on data with 0.1% fraud is:",
+      "options": [
+        "Very slow",
+        "~99.9% accurate but useless — it catches zero fraud",
+        "Impossible",
+        "Perfect"
+      ],
+      "answer": 1,
+      "topic": "M5-Anomaly",
+      "explain": "Accuracy lies on rare events: high accuracy, but it never catches fraud."
+    },
+    {
+      "id": 24,
+      "q": "LOF (Local Outlier Factor) detects an anomaly by:",
+      "options": [
+        "Squaring the error",
+        "Random cuts",
+        "Using the label",
+        "Checking if a point is lonely while its neighbours are crowded"
+      ],
+      "answer": 3,
+      "topic": "M5-Anomaly",
+      "explain": "LOF compares a point's local density to its neighbours' — lonely-among-crowds = outlier."
+    },
+    {
+      "id": 25,
+      "q": "What does one neuron do?",
+      "options": [
+        "Sort the data",
+        "Only stores a number",
+        "Multiply inputs by weights, add them up, then apply an activation",
+        "Delete columns"
+      ],
+      "answer": 2,
+      "topic": "M6-NN",
+      "explain": "A neuron: multiply × weights → add (z) → squish/activate → output."
+    },
+    {
+      "id": 26,
+      "q": "During training, what does a neural network actually learn?",
+      "options": [
+        "The learning rate",
+        "The WEIGHTS",
+        "The file names",
+        "The number of rows"
+      ],
+      "answer": 1,
+      "topic": "M6-NN",
+      "explain": "Training adjusts the weights so the guesses get better."
+    },
+    {
+      "id": 27,
+      "q": "Deep learning is:",
+      "options": [
+        "A type of database",
+        "A neural network with MANY (hidden) layers",
+        "A spreadsheet",
+        "A clustering method"
+      ],
+      "answer": 1,
+      "topic": "M6-NN",
+      "explain": "Deep learning = neural networks that are 'deep' — many layers stacked."
+    },
+    {
+      "id": 28,
+      "q": "A neural network is part of:",
+      "options": [
+        "Statistics only",
+        "Machine learning",
+        "Databases",
+        "Operating systems"
+      ],
+      "answer": 1,
+      "topic": "M6-NN",
+      "explain": "A neural network is one type of ML model — same family as trees and K-Means."
+    },
+    {
+      "id": 29,
+      "q": "What is an activation function for?",
+      "options": [
+        "To label data",
+        "To add non-linearity so the network can learn complex patterns",
+        "To split train/test",
+        "To delete neurons"
+      ],
+      "answer": 1,
+      "topic": "M6-NN",
+      "explain": "Without activation, the whole network is just plain arithmetic; activations let it learn complex things."
+    },
+    {
+      "id": 30,
+      "q": "A typical neural network is:",
+      "options": [
+        "Usually SUPERVISED (it needs labels)",
+        "Always unsupervised",
+        "Never trained",
+        "Only for clustering"
+      ],
+      "answer": 0,
+      "topic": "M6-NN",
+      "explain": "Most NNs (e.g. image classifiers) are supervised — they learn from labeled answers."
+    },
+    {
+      "id": 31,
+      "q": "The sentence vector [1,1,0,1,0] means:",
+      "options": [
+        "The loss",
+        "Which words from the list ARE present (1) or not (0)",
+        "The weights",
+        "The model's accuracy"
+      ],
+      "answer": 1,
+      "topic": "M6-NN",
+      "explain": "Bag-of-words: 1 = the word is in the sentence, 0 = it is not."
+    },
+    {
+      "id": 32,
+      "q": "Adding more layers generally lets a network:",
+      "options": [
+        "Run faster",
+        "Use fewer weights",
+        "Learn more complex patterns (but it needs more data)",
+        "Become unsupervised"
+      ],
+      "answer": 2,
+      "topic": "M6-NN",
+      "explain": "More layers = more capacity for complex patterns, at the cost of needing more data/compute."
+    },
+    {
+      "id": 33,
+      "q": "The loss (the 'oops score') measures:",
+      "options": [
+        "The learning rate",
+        "How WRONG the model's guesses are",
+        "How fast training is",
+        "The number of layers"
+      ],
+      "answer": 1,
+      "topic": "M6-Train",
+      "explain": "Loss is one number for how wrong the model is now; training tries to shrink it."
+    },
+    {
+      "id": 34,
+      "q": "Gradient descent does:",
+      "options": [
+        "Steps the weights DOWNHILL to reduce the loss",
+        "Squishes numbers to 0–1",
+        "Adds more data",
+        "Splits the data"
+      ],
+      "answer": 0,
+      "topic": "M6-Train",
+      "explain": "It repeatedly nudges weights toward lower loss — walking downhill on the loss 'mountain'."
+    },
+    {
+      "id": 35,
+      "q": "Backpropagation does:",
+      "options": [
+        "Figures out how much each weight is to blame (computes the gradients)",
+        "Loads the data",
+        "Draws charts",
+        "Picks the optimizer"
+      ],
+      "answer": 0,
+      "topic": "M6-Train",
+      "explain": "Backprop goes backward through the network to find each weight's share of the error."
+    },
+    {
+      "id": 36,
+      "q": "The learning rate is:",
+      "options": [
+        "The STEP SIZE for each weight update",
+        "The loss",
+        "The model's accuracy",
+        "The number of epochs"
+      ],
+      "answer": 0,
+      "topic": "M6-Train",
+      "explain": "Learning rate = how big a step you take downhill each update."
+    },
+    {
+      "id": 37,
+      "q": "If the learning rate is too BIG:",
+      "options": [
+        "Training is just slow",
+        "Nothing changes",
+        "The loss overshoots and bounces / diverges",
+        "Accuracy is always 100%"
+      ],
+      "answer": 2,
+      "topic": "M6-Train",
+      "explain": "Too-big steps overshoot the valley and can make the loss get worse and blow up."
+    },
+    {
+      "id": 38,
+      "q": "Which optimizer is the common default to start with?",
+      "options": [
+        "K-Means",
+        "Adam",
+        "DBSCAN",
+        "SGD with no tuning"
+      ],
+      "answer": 1,
+      "topic": "M6-Train",
+      "explain": "Adam (momentum + adaptive steps) is the usual go-to default optimizer."
+    },
+    {
+      "id": 39,
+      "q": "The sigmoid function squashes a number into the range:",
+      "options": [
+        "0 to 1",
+        "-1 to 1",
+        "0 to 100",
+        "any number"
+      ],
+      "answer": 0,
+      "topic": "M6-Train",
+      "explain": "Sigmoid squashes any input into 0–1 — handy for a probability/'yes meter'."
+    },
+    {
+      "id": 40,
+      "q": "ReLU does what to a NEGATIVE number?",
+      "options": [
+        "Doubles it",
+        "Leaves it unchanged",
+        "Makes it 1",
+        "Turns it into 0"
+      ],
+      "answer": 3,
+      "topic": "M6-Train",
+      "explain": "ReLU = max(0, x): negatives become 0, positives stay. (Leaky ReLU lets a tiny bit through.)"
+    }
+  ]
+}
